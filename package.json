@@ -1,0 +1,22 @@
+{
+  "name": "grysbok",
+  "version": "0.1.2",
+  "description": "A NodeJS Call Center",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThoughtWorksInc/EbolaCallCenter"
+  },
+  "keywords": [
+  ],
+  "license": "TBD"
+}
