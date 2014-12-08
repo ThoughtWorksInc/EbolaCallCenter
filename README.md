@@ -11,5 +11,6 @@ Make sure you have [Node.js](http://nodejs.org/) and npm installed
 $ git clone https://github.com/ThoughtWorksInc/EbolaCallCenter.git
 $ cd EbolaCallCenter
 $ npm install
-$ npm start
+$ bower install
+$ grunt
 ```
