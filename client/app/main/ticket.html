@@ -1,11 +1,11 @@
-<form role="form">
+<form role="form" ng-controller="CaseCtrl">
   <div class="form-group">
     <label for="exampleInputEmail1">Description</label>
     <div class="row">
       <div class="col-xs-8">
-      <input type="text" class="form-control" placeholder="Enter short description of Health Worker Case">
+      <input type="text" class="form-control" ng-model='hwCase.shortDescription' placeholder="Enter short description of Health Worker Case">
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default" ng-click='addCase(hwCase)'>Submit</button>
 </form>
