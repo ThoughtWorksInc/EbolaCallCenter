@@ -5,6 +5,9 @@ angular.module('ebolaCallCenterApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    }, {
+      'title': 'Cases',
+      'link': '/cases/'
     }];
 
     $scope.isCollapsed = true;

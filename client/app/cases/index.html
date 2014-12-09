@@ -1,0 +1,14 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">All cases:</h1>
+      <ul>
+        <li ng-repeat="case in cases">
+           <p>Case #{{$index+1}}: {{case.shortDescription}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
