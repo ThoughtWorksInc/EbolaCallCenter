@@ -8,13 +8,13 @@ angular.module('ebolaCallCenterApp')
       }).when('/cases/', {
         templateUrl: 'app/cases/index.html',
         controller: 'CaseCtrl',
-        // resolve: {
-        //   cases: function($http) {
-        //     return $http.get('/api/cases').then(function(response) {
-        //       return response.data
-        //     });
-        //   }
-        // }
+        resolve: {
+          cases: function($http) {
+            return $http.get('/api/cases').then(function(response) {
+              return response.data
+            });
+          }
+        }
       }).otherwise({
         redirectTo: '/'
       });
