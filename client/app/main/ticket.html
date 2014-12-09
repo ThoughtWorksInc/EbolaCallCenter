@@ -1,11 +1,17 @@
-<form role="form" ng-controller="CaseCtrl">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Description</label>
+<form role="form" ng-controller="CaseCtrl" novalidate name='myForm'>
+
+  <div ng-show="myForm.$invalid && myForm.$dirty" class="alert alert-danger" role="alert">
+    <div ng-show="myForm.shortDescription.$error.required">Case Short Description is required</div>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': myForm.$dirty && myForm.shortDescription.$invalid }">
+    <label for="exampleInputEmail1" class='control-label'>Description</label>
     <div class="row">
-      <div class="col-xs-8">
-      <input type="text" class="form-control" ng-model='hwCase.shortDescription' placeholder="Enter short description of Health Worker Case">
+      <div class="col-xs-6">
+        <input type="text" class="form-control" ng-model='hwCase.shortDescription' required=""  name='shortDescription' placeholder="Enter short description of Health Worker Case">
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-default" ng-click='addCase(hwCase)'>Submit</button>
+  <button type="submit" class="btn btn-primary" ng-click='addCase(hwCase)' ng-disabled="myForm.$invalid" >Submit</button>
 </form>
+
