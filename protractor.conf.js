@@ -21,6 +21,8 @@ exports.config = {
     'e2e/**/*.spec.js'
   ],
 
+  chromeDriver: 'node_modules/chromedriver/lib/chromedriver/chromedriver',
+
   // Patterns to exclude.
   exclude: [],
 
