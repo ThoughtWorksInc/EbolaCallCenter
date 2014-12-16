@@ -4,6 +4,16 @@ EbolaCallCenter
 
 Ebola Call Center
 
+## Before you start
+
+MongoDB is required. Ensure you have mongo installed
+
+```brew install mongo```
+
+and once installed, run it locally:
+
+```mongod --dbpath /tmp```
+
 ## Running Locally
 
 Make sure you have [Node.js](http://nodejs.org/) and npm installed
