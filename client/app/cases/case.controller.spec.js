@@ -14,6 +14,7 @@ describe('Controller: CaseCtrl', function () {
     // $httpBackend = _$httpBackend_;
     // $httpBackend.expectGET('/api/cases')
     //   .respond(['Case 1', 'Casse 2', 'Case 3', 'Case 4']);
+    
 
     scope = $rootScope.$new();
     CaseCtrl = $controller('CaseCtrl', {
