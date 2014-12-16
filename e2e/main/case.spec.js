@@ -7,9 +7,7 @@ describe('Case View', function() {
   mongoose.connect('mongodb://localhost/ebolacallcenter-test');
 
   beforeEach(function() {
-
-    var Case = require('../../server/api/case/case.model');
-    Case.remove({});
+    mongoose.connection.db.dropDatabase(function(){});
 
     browser.get('/');
     newCasePage = require('./new-case.po');
