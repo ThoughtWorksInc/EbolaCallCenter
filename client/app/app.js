@@ -6,4 +6,4 @@ angular.module('ebolaCallCenterApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap'
-])
+]);

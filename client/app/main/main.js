@@ -1,17 +1,17 @@
+'use strict';
 
 angular.module('ebolaCallCenterApp')
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/cases/new.html'
       }).when('/cases/', {
         templateUrl: 'app/cases/index.html',
         controller: 'CaseCtrl',
         resolve: {
           cases: function($http) {
             return $http.get('/api/cases').then(function(response) {
-              return response.data
+              return response.data;
             });
           }
         }
@@ -19,5 +19,5 @@ angular.module('ebolaCallCenterApp')
         redirectTo: '/'
       });
 
-    $locationProvider.html5Mode(true);;
+    $locationProvider.html5Mode(true);
   });
