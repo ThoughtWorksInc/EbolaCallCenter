@@ -23,22 +23,15 @@ module.exports = function(config) {
       'client/app/app.js',
       'client/app/**/*.js',
       'client/components/**/*.js',
-      'client/app/**/*.jade',
-      'client/components/**/*.jade',
       'client/app/**/*.html',
       'client/components/**/*.html'
     ],
 
     preprocessors: {
-      '**/*.jade': 'ng-jade2js',
       '**/*.html': 'html2js',
     },
 
     ngHtml2JsPreprocessor: {
-      stripPrefix: 'client/'
-    },
-
-    ngJade2JsPreprocessor: {
       stripPrefix: 'client/'
     },
 
