@@ -5,6 +5,9 @@ var mongoose = require('mongoose'),
 
 var CaseSchema = new Schema({
   shortDescription: String,
+  hwFirstName: String,
+  hwLastName: String,
+  hwEmail: String,
   created_at    : { type: Date },
   updated_at    : { type: Date }
 });
