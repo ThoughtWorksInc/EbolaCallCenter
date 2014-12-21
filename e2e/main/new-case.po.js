@@ -7,7 +7,11 @@
 
 var NewCase = function() {
   this.formEl = element(by.css('form'));
-  this.nameInput = this.formEl.element(by.id('name-input'));
+  this.shortDescriptionInput = this.formEl.element(by.model('hwCase.shortDescription'));
+  this.hwFirstNameInput = this.formEl.element(by.model('hwCase.hwFirstName'));
+  this.hwLastNameInput = this.formEl.element(by.model('hwCase.hwLastName'));
+  this.hwEmailInput = this.formEl.element(by.model('hwCase.hwEmail'));
+
   this.submitButton = this.formEl.element(by.css('button'));
   this.alertEl = this.formEl.element(by.css('.alert'));
 };
