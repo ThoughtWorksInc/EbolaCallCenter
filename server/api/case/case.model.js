@@ -5,18 +5,20 @@ var mongoose = require('mongoose'),
 
 var CaseSchema = new Schema({
   shortDescription: String,
+  notes: String,
   hwFirstName: String,
   hwLastName: String,
+  hwPhone: String,
   hwEmail: String,
-  created_at    : { type: Date },
-  updated_at    : { type: Date }
+  createdAt : { type: Date },
+  updatedAt : { type: Date }
 });
 
 CaseSchema.pre('save', function(next){
   var now = new Date();
-  this.updated_at = now;
-  if ( !this.created_at ) {
-    this.created_at = now;
+  this.updatedAt = now;
+  if ( !this.createdAt ) {
+    this.createdAt = now;
   }
   next();
 });

@@ -27,8 +27,8 @@ describe('POST /api/cases', function() {
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        res.body.should.have.property('created_at');
-        res.body.should.have.property('updated_at');
+        res.body.should.have.property('createdAt');
+        res.body.should.have.property('updatedAt');
         done();
       });
   });

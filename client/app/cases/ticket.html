@@ -3,13 +3,24 @@
   <div ng-show="myForm.$invalid && myForm.$submitted" class="alert alert-danger" role="alert">
     <div ng-show="myForm.shortDescription.$error.required">Case Short Description is required</div>
     <div ng-show="myForm.hwFirstName.$error.required || myForm.hwLastName.$error.required">Health Worker Name is required</div>
+    <div ng-show="myForm.hwPhone.$error.required">Health Worker Phone Number is required</div>
+    <div ng-show="myForm.hwPhone.$error.pattern">Health Worker Phone Number must be valid</div>
   </div>
 
   <div class="form-group" ng-class="{'has-error': myForm.$submitted && myForm.shortDescription.$invalid }">
-    <label for="shortDescription" class='control-label'>Description</label>
+    <label for="shortDescription" class='control-label'>Short Description</label>
     <div class="row">
       <div class="col-xs-6">
-        <input type="text"class="form-control" ng-model='hwCase.shortDescription' required=""  name='shortDescription' placeholder="Enter short description of Health Worker Case">
+        <input type="text"class="form-control" ng-model='hwCase.shortDescription' required=""  name='shortDescription' placeholder="Enter short description of Health Worker Case"></input>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="shortDescription" class='control-label'>Notes</label>
+    <div class="row">      
+      <div class="col-xs-10">
+        <textarea class="form-control" ng-model='hwCase.notes' rows='4' name='notes' placeholder="Enter detailed notes of Health Worker Case"></textarea>
       </div>
     </div>
   </div>
@@ -17,30 +28,37 @@
   <h3>
     Health Worker
   </h3>
-  
-    
-    <div class="form-group" >
-      <div class="row" >
-        <div class="col-xs-3" ng-class="{'has-error': myForm.$submitted && myForm.hwFirstName.$invalid }">
-          <label for="firstName" class='control-label'>First Name</label>
-          <input type="text" class="form-control" ng-model='hwCase.hwFirstName' required=""  name='hwFirstName' placeholder="Enter First Name">
-        </div>
-        <div class="col-xs-3" ng-class="{'has-error': myForm.$submitted && myForm.hwLastName.$invalid }">
-          <label for="lastName" class='control-label'>Last Name</label>
-          <input type="text" class="form-control" ng-model='hwCase.hwLastName' required=""  name='hwLastName' placeholder="Enter Last Name">
-        </div>
+  <div class="form-group" >
+    <div class="row" >
+      <div class="col-xs-4" ng-class="{'has-error': myForm.$submitted && myForm.hwFirstName.$invalid }">
+        <label for="hwFirstName" class='control-label'>First Name</label>
+        <input type="text" class="form-control" ng-model='hwCase.hwFirstName' required=""  name='hwFirstName' placeholder="Enter First Name"></input>
       </div>
-    </div>
-
-    <div class="form-group" >
-      <div class="row" >
-        <div class="col-xs-6" ng-class="{'has-error': myForm.$submitted && myForm.hwEmail.$invalid }">
-          <label for="email" class='control-label'>Email</label>
-          <input type="text" class="form-control" ng-model='hwCase.hwEmail'  name='hwEmail' placeholder="Enter Email">
-        </div>
+      <div class="col-xs-4" ng-class="{'has-error': myForm.$submitted && myForm.hwLastName.$invalid }">
+        <label for="hwLastName" class='control-label'>Last Name</label>
+        <input type="text" class="form-control" ng-model='hwCase.hwLastName' required=""  name='hwLastName' placeholder="Enter Last Name"></input>
       </div>
     </div>
   </div>
+
+  <div class="form-group" >
+    <div class="row" >
+      <div class="col-xs-3" ng-class="{'has-error': myForm.$submitted && myForm.hwPhone.$invalid }">
+        <label for="hwEmail" class='control-label'>Phone Number</label>
+        <input type="text" required="" ng-pattern='/^[\d\s-\(\)]+$/' class="form-control" ng-model='hwCase.hwPhone' name='hwPhone' placeholder="Enter Phone Number">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group" >
+    <div class="row" >
+      <div class="col-xs-6" ng-class="{'has-error': myForm.$submitted && myForm.hwEmail.$invalid }">
+        <label for="hwEmail" class='control-label'>Email Address</label>
+        <input type="text" class="form-control" ng-model='hwCase.hwEmail'  name='hwEmail' placeholder="Enter Email Address">
+      </div>
+    </div>
+  </div>
+
 
   <hr/>
 

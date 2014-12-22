@@ -24,15 +24,12 @@ describe('Case View', function() {
     expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
 
     newCasePage.hwFirstNameInput.sendKeys('Test First Name');
-
     expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
 
     newCasePage.hwLastNameInput.sendKeys('Test Last Name');
-
     expect(newCasePage.alertEl.getText()).not.toContain('Health Worker Name is required');
 
     newCasePage.hwFirstNameInput.clear();
-
     expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
   });
 
@@ -40,13 +37,32 @@ describe('Case View', function() {
     //todo
   });
 
+  it('should validate phone number', function() {
+    newCasePage.submitButton.click()
+    expect(newCasePage.alertEl.getText()).toContain('Health Worker Phone Number is required');
+
+    newCasePage.hwPhoneInput.sendKeys('rubbish');
+
+    expect(newCasePage.alertEl.getText()).toContain('Health Worker Phone Number must be valid');
+
+    newCasePage.hwPhoneInput.clear();
+    newCasePage.hwPhoneInput.sendKeys('123 - ()');
+
+    expect(newCasePage.alertEl.getText()).not.toContain('Health Worker Phone Number must be valid');
+    //todo format of number
+  });
+
   it('should create new case', function() {
     newCasePage.shortDescriptionInput.sendKeys('Test');
+    newCasePage.notesInput.sendKeys('Test Notes');
     newCasePage.hwFirstNameInput.sendKeys('Test First Name');
     newCasePage.hwLastNameInput.sendKeys('Test Last Name');
+    newCasePage.hwPhoneInput.sendKeys('123456789');
     newCasePage.hwEmailInput.sendKeys('TestEmail');
     newCasePage.submitButton.click();
 
-    expect(casesPage.casesLi.getText()).toEqual(['Case #1: Test - Test First Name - Test Last Name - TestEmail'])
+    expect(casesPage.casesLi.getText()).toEqual(['Case #1: Test - Test Notes - Test First Name - Test Last Name - 123456789 - TestEmail'])
   });
+
+
 });
