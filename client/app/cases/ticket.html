@@ -12,7 +12,7 @@
     <label for="shortDescription" class='control-label'>Short Description</label>
     <div class="row">
       <div class="col-xs-6">
-        <input type="text"class="form-control" ng-model='hwCase.shortDescription' required=""  name='shortDescription' placeholder="Enter short description of Health Worker Case"></input>
+        <input type="text"class="form-control" ng-model='hwCase.shortDescription' required=""  name='shortDescription' placeholder="Enter short description of Health Worker Case" ng-model-options="{ updateOn: 'blur'}"></input>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
     <label for="shortDescription" class='control-label'>Notes</label>
     <div class="row">      
       <div class="col-xs-10">
-        <textarea class="form-control" ng-model='hwCase.notes' rows='4' name='notes' placeholder="Enter detailed notes of Health Worker Case"></textarea>
+        <textarea class="form-control" ng-model='hwCase.notes' rows='4' name='notes' placeholder="Enter detailed notes of Health Worker Case" ng-model-options="{ updateOn: 'blur'}"></textarea>
       </div>
     </div>
   </div>
@@ -33,11 +33,11 @@
     <div class="row" >
       <div class="col-xs-4" ng-class="{'has-error': myForm.$submitted && myForm.hwFirstName.$invalid }">
         <label for="hwFirstName" class='control-label'>First Name</label>
-        <input type="text" class="form-control" ng-model='hwCase.hwFirstName' required=""  name='hwFirstName' placeholder="Enter First Name"></input>
+        <input type="text" class="form-control" ng-model='hwCase.hwFirstName' required=""  name='hwFirstName' placeholder="Enter First Name" ng-model-options="{ updateOn: 'blur'}"></input>
       </div>
       <div class="col-xs-4" ng-class="{'has-error': myForm.$submitted && myForm.hwLastName.$invalid }">
         <label for="hwLastName" class='control-label'>Last Name</label>
-        <input type="text" class="form-control" ng-model='hwCase.hwLastName' required=""  name='hwLastName' placeholder="Enter Last Name"></input>
+        <input type="text" class="form-control" ng-model='hwCase.hwLastName' required=""  name='hwLastName' placeholder="Enter Last Name" ng-model-options="{ updateOn: 'blur'}"></input>
       </div>
     </div>
   </div>
@@ -46,16 +46,16 @@
     <div class="row" >
       <div class="col-xs-3" ng-class="{'has-error': myForm.$submitted && myForm.hwPhone.$invalid }">
         <label for="hwEmail" class='control-label'>Phone Number</label>
-        <input type="text" required="" ng-pattern='/^[\d\s-\(\)]+$/' class="form-control" ng-model='hwCase.hwPhone' name='hwPhone' placeholder="Enter Phone Number">
+        <input type="text" required="" ng-pattern='/^[\d\s-\(\)]+$/' class="form-control" ng-model='hwCase.hwPhone' name='hwPhone' placeholder="Enter Phone Number" ng-model-options="{ updateOn: 'blur'}">
       </div>
     </div>
   </div>
 
   <div class="form-group" >
     <div class="row" >
-      <div class="col-xs-6" ng-class="{'has-error': myForm.$submitted && myForm.hwEmail.$invalid }">
+      <div class="col-xs-6" ng-class="{'has-error': myForm.$submitted && myForm.hwEmail.$invalid }" ng-model-options="{ updateOn: 'blur'}">
         <label for="hwEmail" class='control-label'>Email Address</label>
-        <input type="email" class="form-control" ng-model='hwCase.hwEmail'  name='hwEmail' placeholder="Enter Email Address">
+        <input type="email" class="form-control" ng-model='hwCase.hwEmail'  name='hwEmail' placeholder="Enter Email Address" ng-model-options="{ updateOn: 'blur'}">
       </div>
     </div>
   </div>

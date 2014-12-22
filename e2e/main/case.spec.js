@@ -27,22 +27,26 @@ describe('Case View', function() {
     expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
 
     newCasePage.hwLastNameInput.sendKeys('Test Last Name');
-    expect(newCasePage.alertEl.getText()).not.toContain('Health Worker Name is required');
+    newCasePage.submitButton.click();
+    expect(newCasePage.hwLastNameInput.getAttribute('class')).toContain('ng-valid');
 
     newCasePage.hwFirstNameInput.clear();
-    expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
+    newCasePage.submitButton.click();
+    expect(newCasePage.hwFirstNameInput.getAttribute('class')).toContain('ng-invalid');
   });
 
   it('should validate email address', function() {
     newCasePage.submitButton.click()
-    expect(newCasePage.alertEl.getText()).not.toContain('Healther Worker Email must be valid');
+    expect(newCasePage.alertEl.getText()).not.toContain('Health Worker Email must be valid');
     
     newCasePage.hwEmailInput.sendKeys('invalidemail');    
-    expect(newCasePage.alertEl.getText()).not.toContain('Healther Worker Email must be valid');
+    newCasePage.submitButton.click();
+    expect(newCasePage.hwEmailInput.getAttribute('class')).toContain('ng-invalid');
 
     newCasePage.hwEmailInput.clear();    
-    newCasePage.hwEmailInput.sendKeys('validemail@gmail.com');    
-    expect(newCasePage.alertEl.getText()).not.toContain('Healther Worker Email must be valid');
+    newCasePage.hwEmailInput.sendKeys('validemail@gmail.com');
+    newCasePage.submitButton.click();
+    expect(newCasePage.hwEmailInput.getAttribute('class')).toContain('ng-valid');
   });
 
   it('should validate phone number', function() {
@@ -51,13 +55,11 @@ describe('Case View', function() {
 
     newCasePage.hwPhoneInput.sendKeys('rubbish');
 
-    expect(newCasePage.alertEl.getText()).toContain('Health Worker Phone Number must be valid');
+    expect(newCasePage.hwPhoneInput.getAttribute('class')).toContain('ng-invalid');
 
     newCasePage.hwPhoneInput.clear();
     newCasePage.hwPhoneInput.sendKeys('123 - ()');
-
-    expect(newCasePage.alertEl.getText()).not.toContain('Health Worker Phone Number must be valid');
-    //todo format of number
+    expect(newCasePage.hwPhoneInput.getAttribute('class')).toContain('ng-valid');
   });
 
   it('should create new case', function() {
