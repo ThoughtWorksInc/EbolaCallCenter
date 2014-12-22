@@ -34,7 +34,15 @@ describe('Case View', function() {
   });
 
   it('should validate email address', function() {
-    //todo
+    newCasePage.submitButton.click()
+    expect(newCasePage.alertEl.getText()).not.toContain('Healther Worker Email must be valid');
+    
+    newCasePage.hwEmailInput.sendKeys('invalidemail');    
+    expect(newCasePage.alertEl.getText()).not.toContain('Healther Worker Email must be valid');
+
+    newCasePage.hwEmailInput.clear();    
+    newCasePage.hwEmailInput.sendKeys('validemail@gmail.com');    
+    expect(newCasePage.alertEl.getText()).not.toContain('Healther Worker Email must be valid');
   });
 
   it('should validate phone number', function() {
@@ -58,10 +66,10 @@ describe('Case View', function() {
     newCasePage.hwFirstNameInput.sendKeys('Test First Name');
     newCasePage.hwLastNameInput.sendKeys('Test Last Name');
     newCasePage.hwPhoneInput.sendKeys('123456789');
-    newCasePage.hwEmailInput.sendKeys('TestEmail');
+    newCasePage.hwEmailInput.sendKeys('TestEmail@gmail.com');
     newCasePage.submitButton.click();
 
-    expect(casesPage.casesLi.getText()).toEqual(['Case #1: Test - Test Notes - Test First Name - Test Last Name - 123456789 - TestEmail'])
+    expect(casesPage.casesLi.getText()).toEqual(['Case #1: Test - Test Notes - Test First Name - Test Last Name - 123456789 - TestEmail@gmail.com'])
   });
 
 

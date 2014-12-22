@@ -5,6 +5,7 @@
     <div ng-show="myForm.hwFirstName.$error.required || myForm.hwLastName.$error.required">Health Worker Name is required</div>
     <div ng-show="myForm.hwPhone.$error.required">Health Worker Phone Number is required</div>
     <div ng-show="myForm.hwPhone.$error.pattern">Health Worker Phone Number must be valid</div>
+    <div ng-show="myForm.hwEmail.$error.email">Health Worker Email must be valid</div>
   </div>
 
   <div class="form-group" ng-class="{'has-error': myForm.$submitted && myForm.shortDescription.$invalid }">
@@ -54,7 +55,7 @@
     <div class="row" >
       <div class="col-xs-6" ng-class="{'has-error': myForm.$submitted && myForm.hwEmail.$invalid }">
         <label for="hwEmail" class='control-label'>Email Address</label>
-        <input type="text" class="form-control" ng-model='hwCase.hwEmail'  name='hwEmail' placeholder="Enter Email Address">
+        <input type="email" class="form-control" ng-model='hwCase.hwEmail'  name='hwEmail' placeholder="Enter Email Address">
       </div>
     </div>
   </div>
