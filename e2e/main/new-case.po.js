@@ -16,6 +16,37 @@ var NewCase = function() {
 
   this.submitButton = this.formEl.element(by.css('button'));
   this.alertEl = this.formEl.element(by.css('.alert'));
+
+  this.setShortDescription = function(value) {
+    this.shortDescriptionInput.sendKeys(value);
+    this.formEl.click();
+  };
+
+  this.setNotes = function(value) {
+    this.notesInput.sendKeys(value);
+    this.formEl.click();
+  };
+
+  this.setFirstName = function(value) {
+    this.hwFirstNameInput.sendKeys(value);
+    this.formEl.click();
+  };
+
+  this.setLastName = function(value) {
+    this.hwLastNameInput.sendKeys(value);
+    this.formEl.click();
+  };
+
+  this.clearHealthWorker = function() {
+    this.hwFirstNameInput.clear();
+    this.hwLastNameInput.clear();
+    this.hwPhoneInput.clear();
+    this.hwEmailInput.clear();
+  }
+
+  this.submit = function() {
+    this.submitButton.click();
+  };
 };
 
 module.exports = new NewCase();
