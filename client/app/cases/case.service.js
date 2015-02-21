@@ -1,7 +1,7 @@
 
 angular.module('ebolaCallCenterApp')
   .service('caseService', function(workerService) {
-    var startingIDNumber = 100;
+    var workingIDNumber = 100;
 
     this.generateNewCase = function (){
       return {
@@ -11,10 +11,8 @@ angular.module('ebolaCallCenterApp')
     }  
     
     var generateId = function() {
-      // should have state
-       // Maths pick a number bet 100-999
-       // "CASE-" + randomid 
-       // CASE-\d\d\d
-       return "this is a very unique id";
+      var generatedCaseID = "CASE-" + workingIDNumber
+      workingIDNumber = workingIDNumber + 1;
+      return generatedCaseID;
     };
  });

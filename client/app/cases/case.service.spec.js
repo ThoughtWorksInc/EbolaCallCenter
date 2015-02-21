@@ -25,8 +25,8 @@ describe('caseService', function () {
     var firstNewCase = caseService.generateNewCase();
     var secondNewCase = caseService.generateNewCase();
 
-    expect(firstNewCase.id).toEqual(100);
-    expect(secondNewCase.id).toEqual(101);
+    expect(firstNewCase.id).toEqual("CASE-100");
+    expect(secondNewCase.id).toEqual("CASE-101");
   });
 
 
