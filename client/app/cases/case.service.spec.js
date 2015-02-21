@@ -9,10 +9,9 @@ describe('caseService', function () {
 
   // Initialize the service
   beforeEach(function() {
-    workerService = jasmine.createSpyObj('workerService', ['getFreeHealthWorker']);
-  //  workerService.getFreeHealthWorker.and.returnValue('Tim');
 
-    module('ebolaCallCenterApp', function ($provide) {
+    workerService = jasmine.createSpyObj('workerService', ['getFreeHealthWorker']);
+    module(function ($provide) {
       $provide.value('workerService', workerService);
     });
 
@@ -30,11 +29,9 @@ describe('caseService', function () {
   });
 
 
-  it('should assign an available manager in the appropriate region', function () {
+  it('should assign an available manager in the appropriate region', inject(function (workerService) {
     var firstNewCase = caseService.generateNewCase();
-    var secondNewCase = caseService.generateNewCase();
 
-    expect(firstNewCase.manager).toBe();
-    expect(secondNewCase.manager).toBe();
-  });
+    expect(workerService.getFreeHealthWorker).toHaveBeenCalled();
+  }));
 });
