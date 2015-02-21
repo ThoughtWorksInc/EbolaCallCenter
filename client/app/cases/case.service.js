@@ -2,7 +2,7 @@
 angular.module('ebolaCallCenterApp')
   .service('caseService', function() {
     var startingIDNumber = 100;
-    this.generateNewCase = function (){
+    this.generateNewCase = function (workerService){
       return {
         id: generateId(),
         heathWorker: workerService.getFreeHealthWorker()

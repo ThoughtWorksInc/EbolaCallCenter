@@ -1,13 +1,13 @@
 
 angular.module('ebolaCallCenterApp')
-  .service('managersService', function() {
+  .service('workerService', function() {
 
-    this.getAvailable = function() {
+    this.getFreeHealthWorker = function() {
       var i = Math.floor( Math.random() * ( 1 + 3 - 0 ) ) + 0;
       return managers[i];
     }
 
-    var managers = [
+    var workers = [
       "Chelsea", 
       "Tim", 
       "Jim", 
