@@ -1,14 +1,16 @@
 
 angular.module('ebolaCallCenterApp')
-  .service('caseService', function() {
+  .service('caseService', function(workerService) {
     var startingIDNumber = 100;
-    this.generateNewCase = function (workerService){
+
+    this.generateNewCase = function (){
       return {
         id: generateId(),
         heathWorker: workerService.getFreeHealthWorker()
       }
     }  
-    var generateID = function() {
+    
+    var generateId = function() {
       // should have state
        // Maths pick a number bet 100-999
        // "CASE-" + randomid 
