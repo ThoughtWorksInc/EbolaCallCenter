@@ -28,7 +28,6 @@ describe('caseService', function () {
     expect(secondNewCase.id).toEqual("CASE-101");
   });
 
-
   it('should assign an available manager in the appropriate region', inject(function (workerService) {
     var firstNewCase = caseService.generateNewCase();
 
