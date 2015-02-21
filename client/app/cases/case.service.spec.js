@@ -9,8 +9,8 @@ describe('caseService', function () {
 
   // Initialize the service
   beforeEach(function() {
-
     workerService = jasmine.createSpyObj('workerService', ['getFreeHealthWorker']);
+
     module(function ($provide) {
       $provide.value('workerService', workerService);
     });

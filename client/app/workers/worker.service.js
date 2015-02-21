@@ -4,7 +4,7 @@ angular.module('ebolaCallCenterApp')
 
     this.getFreeHealthWorker = function() {
       var i = Math.floor( Math.random() * ( 1 + 3 - 0 ) ) + 0;
-      return managers[i];
+      return workers[i];
     }
 
     var workers = [
