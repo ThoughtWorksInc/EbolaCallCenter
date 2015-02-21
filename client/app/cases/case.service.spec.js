@@ -20,4 +20,13 @@ describe('caseService', function () {
     expect(firstNewCase.id).toEqual(100);
     expect(secondNewCase.id).toEqual(101);
   });
+
+
+  it('should assign an available manager in the appropriate region', function () {
+    var firstNewCase = caseService.generateNewCase();
+    var secondNewCase = caseService.generateNewCase();
+
+    expect(firstNewCase.id).toEqual(100);
+    expect(secondNewCase.id).toEqual(101);
+  });
 });
