@@ -9,11 +9,6 @@ describe('caseService', function () {
 
   // Initialize the service
   beforeEach(function() {
-    workerService = jasmine.createSpyObj('workerService', ['getFreeHealthWorker']);
-
-    module(function ($provide) {
-      $provide.value('workerService', workerService);
-    });
 
     inject(['caseService', function(_caseService_) {
       caseService = _caseService_;
@@ -29,8 +24,10 @@ describe('caseService', function () {
   });
 
   it('should assign an available manager in the appropriate region', inject(function (workerService) {
+    spyOn(workerService, 'getFreeHealthWorker').andReturn('Tim');
     var firstNewCase = caseService.generateNewCase();
 
     expect(workerService.getFreeHealthWorker).toHaveBeenCalled();
+    expect(firstNewCase.heathWorker).toEqual('Tim');
   }));
 });
