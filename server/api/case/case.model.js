@@ -6,10 +6,10 @@ var mongoose = require('mongoose'),
 var CaseSchema = new Schema({
   shortDescription: String,
   notes: String,
-  hwFirstName: String,
-  hwLastName: String,
-  hwPhone: String,
-  hwEmail: String,
+  firstName: String,
+  lastName: String,
+  phone: String,
+  email: String,
   createdAt : { type: Date },
   updatedAt : { type: Date }
 });

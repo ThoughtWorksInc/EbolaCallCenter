@@ -19,12 +19,25 @@ describe('Case View', function() {
     expect(newCasePage.alertEl.getText()).toContain('Case Short Description is required');
   });
 
+  it('should validate phone number', function() {
+    newCasePage.submit();
+    expect(newCasePage.alertEl.getText()).toContain('Phone Number is required');
+
+    newCasePage.hwPhoneInput.sendKeys('rubbish');
+    expect(newCasePage.hwPhoneInput.getAttribute('class')).toContain('ng-invalid');
+
+    newCasePage.hwPhoneInput.clear();
+    newCasePage.hwPhoneInput.sendKeys('123 - ()');
+    expect(newCasePage.hwPhoneInput.getAttribute('class')).toContain('ng-valid');
+  });
+
+
   it('should validate health worker name', function() {
     newCasePage.submit();
-    expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
+    expect(newCasePage.alertEl.getText()).toContain('Name is required');
 
     newCasePage.setFirstName('Test First Name');
-    expect(newCasePage.alertEl.getText()).toContain('Health Worker Name is required');
+    expect(newCasePage.alertEl.getText()).toContain('Name is required');
 
     newCasePage.setLastName('Test Last Name');
     expect(newCasePage.hwLastNameInput.getAttribute('class')).toContain('ng-valid');
@@ -35,7 +48,7 @@ describe('Case View', function() {
 
   it('should validate email address', function() {
     newCasePage.submit();
-    expect(newCasePage.alertEl.getText()).not.toContain('Health Worker Email must be valid');
+    expect(newCasePage.alertEl.getText()).not.toContain('Email must be valid');
     
     newCasePage.hwEmailInput.sendKeys('invalidemail');    
     newCasePage.submit();
@@ -47,19 +60,7 @@ describe('Case View', function() {
     expect(newCasePage.hwEmailInput.getAttribute('class')).toContain('ng-valid');
   });
 
-  it('should validate phone number', function() {
-    newCasePage.submit();
-    expect(newCasePage.alertEl.getText()).toContain('Health Worker Phone Number is required');
-
-    newCasePage.hwPhoneInput.sendKeys('rubbish');
-    expect(newCasePage.hwPhoneInput.getAttribute('class')).toContain('ng-invalid');
-
-    newCasePage.hwPhoneInput.clear();
-    newCasePage.hwPhoneInput.sendKeys('123 - ()');
-    expect(newCasePage.hwPhoneInput.getAttribute('class')).toContain('ng-valid');
-  });
-
-  it('should create new case', function() {
+  it('should create new case with assigned health worker', function() {
     newCasePage.setShortDescription('Test');
     newCasePage.notesInput.sendKeys('Test Notes');
     newCasePage.setFirstName('Test First Name');

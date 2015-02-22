@@ -9,10 +9,10 @@ var NewCase = function() {
   this.formEl = element(by.css('form'));
   this.shortDescriptionInput = this.formEl.element(by.model('hwCase.shortDescription'));
   this.notesInput = this.formEl.element(by.model('hwCase.notes'));
-  this.hwFirstNameInput = this.formEl.element(by.model('hwCase.hwFirstName'));
-  this.hwLastNameInput = this.formEl.element(by.model('hwCase.hwLastName'));
-  this.hwPhoneInput = this.formEl.element(by.model('hwCase.hwPhone'));
-  this.hwEmailInput = this.formEl.element(by.model('hwCase.hwEmail'));
+  this.hwFirstNameInput = this.formEl.element(by.model('hwCase.firstName'));
+  this.hwLastNameInput = this.formEl.element(by.model('hwCase.lastName'));
+  this.hwPhoneInput = this.formEl.element(by.model('hwCase.phone'));
+  this.hwEmailInput = this.formEl.element(by.model('hwCase.email'));
 
   this.submitButton = this.formEl.element(by.css('button'));
   this.alertEl = this.formEl.element(by.css('.alert'));
