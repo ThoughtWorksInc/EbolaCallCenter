@@ -3,7 +3,6 @@
 describe('caseService', function () {
 
   beforeEach(module('ebolaCallCenterApp'));
-
   var caseService, workerService;
 
   beforeEach(function() {

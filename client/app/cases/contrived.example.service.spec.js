@@ -7,4 +7,9 @@ describe('ContrivedExampleService', function () {
     expect(result).toEqual(9);
   });
 
+  it('should concat strings', function () {
+    var result = ContrivedExampleService.concatStrings("a very silly ", "example");
+    expect(result).toEqual("a very silly example");
+  });
+
 });
