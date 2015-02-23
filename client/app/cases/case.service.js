@@ -15,4 +15,4 @@ angular.module('ebolaCallCenterApp')
       workingIDNumber = workingIDNumber + 1;
       return generatedCaseID;
     };
- });
+  });
