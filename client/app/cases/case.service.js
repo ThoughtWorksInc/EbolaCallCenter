@@ -6,7 +6,7 @@ angular.module('ebolaCallCenterApp')
     this.generateNewCase = function (){
       return {
         id: generateId(),
-        heathWorker: workerService.getFreeHealthWorker()
+        healthWorker: workerService.getFreeHealthWorker()
       }
     }  
     

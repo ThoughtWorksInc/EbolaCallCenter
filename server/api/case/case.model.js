@@ -10,6 +10,8 @@ var CaseSchema = new Schema({
   lastName: String,
   phone: String,
   email: String,
+  id: String,
+  healthWorker: String,
   createdAt : { type: Date },
   updatedAt : { type: Date }
 });

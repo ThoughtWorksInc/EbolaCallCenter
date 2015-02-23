@@ -69,7 +69,7 @@ describe('Case View', function() {
     newCasePage.hwEmailInput.sendKeys('TestEmail@gmail.com');
     newCasePage.submit();
 
-    expect(casesPage.casesLi.getText()).toEqual(['Case #1: Test - Test Notes - Test First Name - Test Last Name - 123456789 - TestEmail@gmail.com'])
+    expect(casesPage.casesLi.getText()).toMatch(['Case #CASE-100: Test - Test Notes - Test First Name - Test Last Name - 123456789 - TestEmail@gmail.com'])
   });
 
 

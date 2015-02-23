@@ -24,7 +24,6 @@ describe('Controller: CaseCtrl', function () {
   }));
 
   it('should attach a list of things to the scope', function () {
-    // $httpBackend.flush();
     expect(scope.cases.length).toBe(4);
   });
 });
