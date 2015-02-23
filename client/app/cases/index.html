@@ -4,7 +4,7 @@
       <h1 class="page-header">All cases:</h1>
       <ul>
         <li ng-repeat="case in cases">
-           <p>Case #{{$index+1}}: {{case.shortDescription}} - {{case.notes}} - {{case.hwFirstName}} - {{case.hwLastName}} - {{case.hwPhone}} - {{case.hwEmail}} </p>
+           <p>Case #{{case.id}}: {{case.shortDescription}} - {{case.notes}} - {{case.firstName}} - {{case.lastName}} - {{case.phone}} - {{case.email}}<br/>HealthWorker: {{case.healthWorker}}</p>
         </li>
       </ul>
     </div>

@@ -8,11 +8,6 @@
 var NewCase = function() {
   this.formEl = element(by.css('form'));
   this.shortDescriptionInput = this.formEl.element(by.model('hwCase.shortDescription'));
-  this.notesInput = this.formEl.element(by.model('hwCase.notes'));
-  this.hwFirstNameInput = this.formEl.element(by.model('hwCase.hwFirstName'));
-  this.hwLastNameInput = this.formEl.element(by.model('hwCase.hwLastName'));
-  this.hwPhoneInput = this.formEl.element(by.model('hwCase.hwPhone'));
-  this.hwEmailInput = this.formEl.element(by.model('hwCase.hwEmail'));
 
   this.submitButton = this.formEl.element(by.css('button'));
   this.alertEl = this.formEl.element(by.css('.alert'));
@@ -22,26 +17,8 @@ var NewCase = function() {
     this.formEl.click();
   };
 
-  this.setNotes = function(value) {
-    this.notesInput.sendKeys(value);
-    this.formEl.click();
-  };
-
-  this.setFirstName = function(value) {
-    this.hwFirstNameInput.sendKeys(value);
-    this.formEl.click();
-  };
-
-  this.setLastName = function(value) {
-    this.hwLastNameInput.sendKeys(value);
-    this.formEl.click();
-  };
-
-  this.clearHealthWorker = function() {
-    this.hwFirstNameInput.clear();
-    this.hwLastNameInput.clear();
-    this.hwPhoneInput.clear();
-    this.hwEmailInput.clear();
+  this.errorMessages = function () {
+    return this.alertEl.getText()
   }
 
   this.submit = function() {
